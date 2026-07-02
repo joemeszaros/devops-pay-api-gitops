@@ -79,3 +79,22 @@ A Terraform outputból vedd ki a `github_actions_role_arn` értéket, és állí
 2. Release workflow image-et pushol ECR-be.
 3. Workflow PR-t nyit ebben a repóban.
 4. Merge után Argo CD deployol.
+
+## 8. Demo elérés Load Balancer nélkül
+
+Alapértelmezésben a szolgáltatás `ClusterIP`, ezért a legegyszerűbb demo-elérés:
+
+```bash
+kubectl port-forward -n pay-api-prod svc/pay-api 8080:80
+```
+
+Ezután helyben eléred:
+
+```bash
+curl http://127.0.0.1:8080/health
+curl -X POST http://127.0.0.1:8080/payments/quote \
+  -H 'content-type: application/json' \
+  -d '{"amountMinor":15001,"currency":"HUF","installments":6}'
+```
+
+Ha később publikus elérés kell, a `service.type` visszaállítható `LoadBalancer` értékre.

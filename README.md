@@ -44,4 +44,4 @@ Részletes lépésrend: [docs/bootstrap.md](docs/bootstrap.md)
 - külön GitHub repo az alkalmazásnak és a GitOpsnak (`joemeszaros/devops-pay-api-app`, `joemeszaros/devops-pay-api-gitops`)
 - GitHub OIDC role a release workflow számára
 - a Kubernetes verzió nincs hardcode-olva, `terraform.tfvars`-ban kell megadni aktuális EKS támogatott verzióra
-- a külső elérést v1-ben egy `Service type=LoadBalancer` adja, nem külön ingress controller
+- a külső elérés v1-ben alapból nincs bekapcsolva; a demo elérés `kubectl port-forward`-dal történik

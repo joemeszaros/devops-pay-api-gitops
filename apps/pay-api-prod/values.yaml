@@ -1,6 +1,6 @@
 nameOverride: pay-api
 
-replicaCount: 2
+replicaCount: 1
 
 image:
   repository: 123456789012.dkr.ecr.eu-central-1.amazonaws.com/pay-api
@@ -8,7 +8,7 @@ image:
   pullPolicy: IfNotPresent
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 80
   targetPort: 3000
 
@@ -40,7 +40,7 @@ env:
   LOG_LEVEL: info
 
 hpa:
-  enabled: true
-  minReplicas: 2
-  maxReplicas: 6
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 2
   targetCPUUtilizationPercentage: 70
