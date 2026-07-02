@@ -4,7 +4,7 @@ replicaCount: 1
 
 image:
   repository: 494313539566.dkr.ecr.eu-central-1.amazonaws.com/pay-api
-  digest: sha256:replace-me
+  digest: sha256:184b882984fd6cb0dc7341d25d37f14eb09f4786ddab7242c1cb6f12300763cb
   pullPolicy: IfNotPresent
 
 service:
