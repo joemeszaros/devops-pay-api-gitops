@@ -182,7 +182,7 @@ resource "aws_iam_role_policy_attachment" "eks_node_group" {
 
 resource "aws_security_group" "eks_cluster" {
   name        = "${var.project_name}-eks-cluster-sg"
-  description = "EKS klaszter biztonsági csoport"
+  description = "EKS cluster security group"
   vpc_id      = aws_vpc.this.id
 
   egress {
