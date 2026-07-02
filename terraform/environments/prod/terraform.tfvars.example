@@ -1,9 +1,9 @@
 aws_region         = "eu-central-1"
 project_name       = "pay-api"
 cluster_name       = "pay-api-prod"
-cluster_version    = "SET_SUPPORTED_EKS_VERSION"
+cluster_version    = "1.36"
 availability_zones = ["eu-central-1a", "eu-central-1b"]
-github_org         = "your-github-org"
-github_app_repo    = "pay-api-app"
+github_org         = "joemeszaros"
+github_app_repo    = "devops-pay-api-app"
 github_environment = "prod"
 ecr_repository_name = "pay-api"

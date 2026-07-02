@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-github-org/pay-api-gitops.git
+    repoURL: https://github.com/joemeszaros/devops-pay-api-gitops.git
     targetRevision: main
     path: apps/pay-api-prod
     helm:

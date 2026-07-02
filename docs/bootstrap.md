@@ -11,7 +11,7 @@ Ez a dokumentum a két repo összekötésének minimum lépésrendjét írja le.
 Példa:
 
 ```bash
-git remote add origin git@github.com:<ORG>/pay-api-gitops.git
+git remote add origin git@github.com:joemeszaros/devops-pay-api-gitops.git
 git add .
 git commit -m "feat: bootstrap pay-api gitops"
 git push -u origin main
@@ -37,8 +37,8 @@ A `terraform/environments/prod` könyvtárban töltsd ki a `terraform.tfvars` f�
 
 - `cluster_version`
 - `availability_zones`
-- `github_org`
-- `github_app_repo`
+- `github_org` (`joemeszaros`)
+- `github_app_repo` (`devops-pay-api-app`)
 
 Utána:
 
