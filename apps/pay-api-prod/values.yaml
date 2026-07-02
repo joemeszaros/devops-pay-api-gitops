@@ -1,0 +1,46 @@
+nameOverride: pay-api
+
+replicaCount: 2
+
+image:
+  repository: 123456789012.dkr.ecr.eu-central-1.amazonaws.com/pay-api
+  digest: sha256:replace-me
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 3000
+
+containerPort: 3000
+
+ingress:
+  enabled: false
+  className: alb
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/healthcheck-path: /health
+  hosts:
+    - host: pay-api.example.internal
+      paths:
+        - path: /
+          pathType: Prefix
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 250m
+    memory: 256Mi
+
+env:
+  APP_VERSION: "0.1.0"
+  LOG_LEVEL: info
+
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 70

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-bootstrap-note
+  namespace: argocd
+data:
+  README: |
+    Install Argo CD from the official manifests before applying the Application object:
+      kubectl create namespace argocd --dry-run=client -o yaml | kubectl apply -f -
+      kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
