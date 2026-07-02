@@ -39,7 +39,7 @@ variable "github_app_repo" {
 }
 
 variable "github_environment" {
-  type = string
+  type    = string
   default = "prod"
 }
 
