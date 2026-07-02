@@ -2,6 +2,11 @@
 
 Ez a dokumentum a két repo összekötésének minimum lépésrendjét írja le.
 
+Jelenlegi projektadatok:
+
+- AWS account ID: `494313539566`
+- AWS régió: `eu-central-1`
+
 ## 1. GitHub repo
 
 1. Hozd létre a `pay-api-gitops` GitHub repót.
@@ -47,7 +52,7 @@ cd terraform/environments/prod
 terraform init \
   -backend-config="bucket=<STATE_BUCKET>" \
   -backend-config="key=prod/terraform.tfstate" \
-  -backend-config="region=<AWS_REGION>" \
+  -backend-config="region=eu-central-1" \
   -backend-config="dynamodb_table=<LOCK_TABLE>"
 terraform apply
 ```
@@ -55,7 +60,7 @@ terraform apply
 ## 4. Kubectl kapcsolat az EKS-hez
 
 ```bash
-aws eks update-kubeconfig --region <AWS_REGION> --name pay-api-prod
+aws eks update-kubeconfig --region eu-central-1 --name pay-api-prod
 kubectl get nodes
 ```
 
