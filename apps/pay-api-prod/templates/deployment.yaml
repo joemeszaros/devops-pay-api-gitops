@@ -26,6 +26,16 @@ spec:
               value: {{ .Values.env.APP_VERSION | quote }}
             - name: LOG_LEVEL
               value: {{ .Values.env.LOG_LEVEL | quote }}
+            - name: OTEL_ENABLED
+              value: {{ .Values.env.OTEL_ENABLED | quote }}
+            - name: OTEL_SERVICE_NAME
+              value: {{ .Values.env.OTEL_SERVICE_NAME | quote }}
+            - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+              value: {{ .Values.env.OTEL_EXPORTER_OTLP_TRACES_ENDPOINT | quote }}
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: {{ .Values.env.OTEL_RESOURCE_ATTRIBUTES | quote }}
+            - name: OTEL_TRACES_SAMPLER
+              value: {{ .Values.env.OTEL_TRACES_SAMPLER | quote }}
           readinessProbe:
             httpGet:
               path: /ready
