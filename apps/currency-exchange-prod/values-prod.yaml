@@ -1,31 +1,18 @@
-nameOverride: pay-api
+nameOverride: currency-exchange
 
 replicaCount: 1
 
 image:
   repository: 494313539566.dkr.ecr.eu-central-1.amazonaws.com/pay-api
-  digest: sha256:184b882984fd6cb0dc7341d25d37f14eb09f4786ddab7242c1cb6f12300763cb
+  digest: sha256:replace-me
   pullPolicy: IfNotPresent
 
 service:
   type: ClusterIP
   port: 80
-  targetPort: 3000
+  targetPort: 3100
 
-containerPort: 3000
-
-ingress:
-  enabled: false
-  className: alb
-  annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/healthcheck-path: /health
-  hosts:
-    - host: pay-api.example.internal
-      paths:
-        - path: /
-          pathType: Prefix
+containerPort: 3100
 
 resources:
   requests:
@@ -38,9 +25,8 @@ resources:
 env:
   APP_VERSION: "0.1.0"
   LOG_LEVEL: info
-  CURRENCY_EXCHANGE_BASE_URL: http://currency-exchange.pay-api-prod.svc.cluster.local
   OTEL_ENABLED: "true"
-  OTEL_SERVICE_NAME: pay-api
+  OTEL_SERVICE_NAME: currency-exchange
   OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://jaeger.observability.svc.cluster.local:4318/v1/traces
   OTEL_RESOURCE_ATTRIBUTES: deployment.environment=prod,service.namespace=pay-api-demo
   OTEL_TRACES_SAMPLER: parentbased_always_on

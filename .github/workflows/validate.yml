@@ -30,8 +30,14 @@ jobs:
       - name: Setup Helm
         uses: azure/setup-helm@v4
 
-      - name: Helm lint
+      - name: Helm lint pay-api
         run: helm lint apps/pay-api-prod
 
-      - name: Helm render
+      - name: Helm render pay-api
         run: helm template pay-api apps/pay-api-prod -f apps/pay-api-prod/values-prod.yaml >/tmp/pay-api-rendered.yaml
+
+      - name: Helm lint currency-exchange
+        run: helm lint apps/currency-exchange-prod
+
+      - name: Helm render currency-exchange
+        run: helm template currency-exchange apps/currency-exchange-prod -f apps/currency-exchange-prod/values-prod.yaml >/tmp/currency-exchange-rendered.yaml

@@ -38,6 +38,7 @@ resources:
 env:
   APP_VERSION: "0.1.0"
   LOG_LEVEL: info
+  CURRENCY_EXCHANGE_BASE_URL: http://currency-exchange.pay-api-prod.svc.cluster.local
   OTEL_ENABLED: "true"
   OTEL_SERVICE_NAME: pay-api
   OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://jaeger.observability.svc.cluster.local:4318/v1/traces
