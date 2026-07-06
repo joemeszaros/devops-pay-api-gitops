@@ -3,7 +3,7 @@ nameOverride: currency-exchange
 replicaCount: 1
 
 image:
-  repository: 494313539566.dkr.ecr.eu-central-1.amazonaws.com/pay-api
+  repository: <AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/<ECR_REPOSITORY_NAME>
   digest: sha256:replace-me
   pullPolicy: IfNotPresent
 

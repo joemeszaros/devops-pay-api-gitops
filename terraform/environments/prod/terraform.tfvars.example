@@ -1,9 +1,9 @@
-aws_region         = "eu-central-1"
+aws_region         = "<AWS_REGION>"
 project_name       = "pay-api"
 cluster_name       = "pay-api-prod"
 cluster_version    = "1.36"
-availability_zones = ["eu-central-1a", "eu-central-1b"]
-github_org         = "joemeszaros"
-github_app_repo    = "devops-pay-api-app"
+availability_zones = ["<AWS_REGION>a", "<AWS_REGION>b"]
+github_org         = "<GITHUB_ORG>"
+github_app_repo    = "<APP_REPOSITORY_NAME>"
 github_environment = "prod"
-ecr_repository_name = "pay-api"
+ecr_repository_name = "<ECR_REPOSITORY_NAME>"

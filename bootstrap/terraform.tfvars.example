@@ -1,2 +1,2 @@
-aws_region   = "eu-central-1"
+aws_region   = "<AWS_REGION>"
 project_name = "pay-api"

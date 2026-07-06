@@ -3,3 +3,7 @@
 *.tfstate
 *.tfstate.*
 crash.log
+.DS_Store
+bootstrap/terraform.tfvars
+terraform/environments/prod/terraform.tfvars
+docs/12-pay-api-architecture-diagram.svg
